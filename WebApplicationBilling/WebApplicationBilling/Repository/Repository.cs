@@ -23,10 +23,10 @@ namespace WebApplicationBilling.Repository
             var request = new HttpRequestMessage(HttpMethod.Get, url);
             var client = _httpClientFactory.CreateClient();
 
-                HttpResponseMessage responseMessage = await client.SendAsync(request);
+            HttpResponseMessage responseMessage = client.SendAsync(request).Result;
 
             //validar respuesta
-                if (responseMessage.IsSuccessStatusCode)
+                if (responseMessage.StatusCode == System.Net.HttpStatusCode.OK)
                 {
                     var jsonString = await responseMessage.Content.ReadAsStringAsync();
 

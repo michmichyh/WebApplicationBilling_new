@@ -24,24 +24,13 @@ namespace WebApplicationBilling.Controllers
             return View();
         }
 
+        [HttpGet] 
         public async Task<IActionResult> GetAll()
         {
-            try
-            {
-                //Llama al repositorio
-                var data = await _customerRepository.GetAllAsync(UrlResources.UrlBase + UrlResources.UrlCustomers);
-                return Json(new { data });
-            }
-            catch (Exception ex)
-            {
-                // Log the exception, handle it, or return an error message as needed
-                return StatusCode(500, "Internal Server Error. Please try again later.");
-            }
+            //return Json(new { data = await _customerRepository.GetAllAsync(UrlResources.UrlCustomers});
+                return View();
+            
         }
-
-        // GET: CustomersController/Details/5
-        public ActionResult Details(int id);
-        //Pendiente. Reto para el aprendiz
 
         // GET: CustomersController/Details/5
         public ActionResult Details(int id)
@@ -60,26 +49,10 @@ namespace WebApplicationBilling.Controllers
         //Captura los datos y los lleva hacia el endpointpasando por el repositorio --> Nube--> DB
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(CustomerDTO customer)
-        {
-            try
-            {
-                await _customerRepository.PostAsync(UrlResources.UrlBase + UrlResources.UrlCustomers, customer);
-        [HttpPost]
-                [ValidateAntiForgeryToken]
-                public ActionResult Create(IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-    }
-}
+        //public Task<IActionResult> Create(CustomerDTO customer)
+  
+
+
         // GET: CustomersController/Edit/5
         public ActionResult Edit(int id)
         {
