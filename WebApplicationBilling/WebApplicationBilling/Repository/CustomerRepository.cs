@@ -10,5 +10,10 @@ namespace WebApplicationBilling.Repository
         {
 
         }
+
+        public Task<CustomerDTO> GetByIdAsync(string v1, int v2)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
